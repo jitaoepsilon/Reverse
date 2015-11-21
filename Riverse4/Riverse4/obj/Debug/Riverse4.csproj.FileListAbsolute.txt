@@ -11,3 +11,6 @@ C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse
 C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.application
 C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.exe.manifest
 C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.application
+C:\Users\epsilon3\Reverse\Riverse4\Riverse4\bin\Debug\Riverse4.exe.config
+C:\Users\epsilon3\Reverse\Riverse4\Riverse4\obj\Debug\Riverse4.exe
+C:\Users\epsilon3\Reverse\Riverse4\Riverse4\obj\Debug\Riverse4.pdb

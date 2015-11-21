@@ -481,7 +481,7 @@ namespace Riverse4
             int comlev = 0, bcom = 0, wcom = 0;
             int mode = PlayerSelect(1, 2, "通常プレイ: 1  棋譜再現: 2");
             //棋譜再現の場合、再現する棋譜を指定
-
+            
             if (mode == 2)
             {
                 mode = PlayerSelect(1, logMaxNumbers, "再現する棋譜を選択してください。");
@@ -503,6 +503,9 @@ namespace Riverse4
                     }
                 }
             }
+            
+            
+
             /*以下通常プレイモード
             */
             else if (mode == 1)
