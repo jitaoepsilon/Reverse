@@ -1,0 +1,13 @@
+C:\Users\fujita haruki\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.exe.config
+C:\Users\fujita haruki\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.exe
+C:\Users\fujita haruki\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.pdb
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.exe.config
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.exe
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.pdb
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.exe
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.pdb
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.csprojResolveAssemblyReference.cache
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.exe.manifest
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\bin\Debug\Riverse4.application
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.exe.manifest
+C:\Users\epsilon3\Dropbox\ドキュメント\Riverse4\Riverse4\obj\Debug\Riverse4.application
