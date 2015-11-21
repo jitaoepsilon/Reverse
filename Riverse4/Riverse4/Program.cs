@@ -318,9 +318,9 @@ namespace Riverse4
                     if (map[xy(x, y)] == 0)
                         Console.Write("・ ");
                     else if (map[xy(x, y)] == 1)
-                        Console.Write("● ");
-                    else if (map[xy(x, y)] == 2)
                         Console.Write("○ ");
+                    else if (map[xy(x, y)] == 2)
+                        Console.Write("● ");
                     //Console.Write("{0} ", map[xy(x, y)]);
                 }
                 Console.Write("|\n");
@@ -474,14 +474,17 @@ namespace Riverse4
         static void Main()
         {
             Console.WriteLine("リバーシ　4.0　\n\nゲームの仕様上、置いた石を置きなおすことはできません。\n");
-            Console.WriteLine("棋譜再現は、実際の棋譜を自動的にシミュレーションする");
             int comMaxLevel = 2;//レベル追加したら書き換える
             int logMaxNumbers = 2;//増やしたら書き換える
-
             int comlev = 0, bcom = 0, wcom = 0;
-            int mode = PlayerSelect(1, 2, "通常プレイ: 1  棋譜再現: 2");
+            int mode = 1;
+
+            //Console.WriteLine("棋譜再現は、実際の棋譜を自動的にシミュレーションする");
+            //PlayerSelect(1, 2, "通常プレイ: 1  棋譜再現: 2");
+            //modeに2を代入すれば棋譜再現モードが起動。普段のプレイにはいらないかなと。
+
             //棋譜再現の場合、再現する棋譜を指定
-            
+
             if (mode == 2)
             {
                 mode = PlayerSelect(1, logMaxNumbers, "再現する棋譜を選択してください。");
