@@ -7,6 +7,34 @@ namespace Riverse4
     {
         protected int[] dir = { -11, -10, -9, -1, 1, 9, 10, 11 };
 
+        protected void PrintBoard(int[] map,string mes)
+        {
+            Console.Clear();
+            Console.WriteLine("\n 　 　A｜B｜C｜D｜E｜F｜G｜H");
+            Console.WriteLine("  　 ― ― ― ― ― ― ― ― 　");
+            for (int y = 1; y <= 8; y++)
+            {
+                Console.Write("{0} ｜ ", y);
+                for (int x = 1; x <= 8; x++)
+                {
+                    if (map[xy(x, y)] == 0)
+                        Console.Write("・ ");
+                    else if (map[xy(x, y)] == 1)
+                        Console.Write("○ ");
+                    else if (map[xy(x, y)] == 2)
+                        Console.Write("● ");
+                    else if (map[xy(x, y)] == 3)
+                        Console.Write("▽ ");
+                    else if (map[xy(x, y)] == 6)
+                        Console.Write("▼ ");
+                    //Console.Write("{0} ", map[xy(x, y)]);
+                }
+                Console.Write("|\n");
+            }
+            Console.WriteLine("  　 ― ― ― ― ― ― ― ― 　\n{0}", mes);
+            //Console.WriteLine("white:{0},black: {1}", wstones, bstones);
+        }
+
         /*座標変換系
         CmdToXy：コマンドは半角のみ。c3でも3cでも大丈夫。大文字も対応
             */
@@ -194,7 +222,7 @@ namespace Riverse4
         public Reverse()
         {
             ResetBoard();
-            PrintBoard(board);
+            PrintBoard(board,"");
         }
         public int[] GetBoard { get { return board; } }
         /*cmdを受け取ってゲーム処理。ゲーム終了の有無を返す。
@@ -208,6 +236,7 @@ namespace Riverse4
             bool mypass = !ExistLegalMove(turn, board);
             if (mypass && ExistLegalMove(Otherside(turn), board) == false)//双方に合法手なし→終了
             {
+                CountStone(wstone, bstone, board);
                 return true;
             }
             else if (mypass && mode == 0)//パス処理
@@ -227,10 +256,11 @@ namespace Riverse4
             }
             logturn++;
             ChangeSide();
-            PrintBoard(board);
+            PrintBoard(board,"");
+            CountStone(wstone, bstone, board);
             return false;
         }
-
+        
         void GetMove(string cmd,int mode)
         {
             int index = 0;
@@ -304,30 +334,7 @@ namespace Riverse4
             }
             Console.Write(" >");
         }
-        public void PrintBoard(int[] map)
-        {
-            //Console.Clear();
-            CountStone(wstone, bstone, board);
-            Console.WriteLine("\n 　 　A｜B｜C｜D｜E｜F｜G｜H");
-            Console.WriteLine("  　 ― ― ― ― ― ― ― ― 　");
-            for (int y = 1; y <= 8; y++)
-            {
-                Console.Write("{0} ｜ ", y);
-                for (int x = 1; x <= 8; x++)
-                {
-                    if (map[xy(x, y)] == 0)
-                        Console.Write("・ ");
-                    else if (map[xy(x, y)] == 1)
-                        Console.Write("○ ");
-                    else if (map[xy(x, y)] == 2)
-                        Console.Write("● ");
-                    //Console.Write("{0} ", map[xy(x, y)]);
-                }
-                Console.Write("|\n");
-            }
-            Console.WriteLine("  　 ― ― ― ― ― ― ― ― 　");
-            //Console.WriteLine("white:{0},black: {1}", wstones, bstones);
-        }
+        
         /*ゲーム終了後にログをメモ帳に出力したい。
         内部のログは返した石も格納する予定だから、
         出力する場合はその辺を省く必要あると思う。
@@ -362,7 +369,7 @@ namespace Riverse4
             switch (mylevel)
             {
                 default:
-                    return player();
+                    return player(board);
                 case 1:
                     return Com1(board);
                 case 2:
@@ -455,9 +462,48 @@ namespace Riverse4
             }
             return result;
         }
-        string player()
+        string player(int[] board)
         {
-            return Console.ReadLine();
+            string mes = "十字キーでコマンドを指定して下さい。\n「C」キーでコマンド入力モードになります。";
+            int[] tempboard = new int[100];
+            int cursole = 55;
+            Array.Copy(board, tempboard, 100);
+            while (true)
+            {
+                int prevcursole = cursole;
+                tempboard[cursole] = myturn * 3;
+                PrintBoard(tempboard, mes);
+                tempboard[cursole] = board[cursole];
+                var playercmd = Console.ReadKey().Key;
+                switch (playercmd)
+                {
+                    case ConsoleKey.C:
+                        Console.Write("コマンド入力モード起動…");
+                        return Console.ReadLine();
+                    case ConsoleKey.UpArrow:
+                        cursole -= 10;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        cursole += 10;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        cursole++;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        cursole--;
+                        break;
+                    case ConsoleKey.Enter:
+                        int nowx, nowy;
+                        nowx = cursole % 10;
+                        nowy = cursole / 10;
+                        if (IsLegalMove(cursole, myturn, board))
+                            return xyToCmd(nowx, nowy);
+                        mes = "error: そこにはおけません。\n" + mes;
+                        break;
+                }
+                if (tempboard[cursole] == -1)
+                    cursole = prevcursole;
+            }
         }
     }
     static class Program

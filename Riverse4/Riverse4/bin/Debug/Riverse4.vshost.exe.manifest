@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Riverse4.exe" size="13784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Riverse4.exe" size="14296">
       <assemblyIdentity name="Riverse4" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uPFNebB/P3pW2LC+fGcCIJEZ+VhbSkcZwdKXnS61Zwc=</dsig:DigestValue>
+        <dsig:DigestValue>Fl9Aznmto1Tu2VwfD9/g+uzAwCDwJcqVRiVPzRCe15w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
